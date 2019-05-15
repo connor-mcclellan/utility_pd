@@ -1,0 +1,5 @@
+File "/home/cmcclellan1010/anaconda2/envs/pdenv/lib/python2.7/site-packages/fsps/__init__.py", line 38, in <module>
+    raise ImportError("Your FSPS version does not seem to be under git version "
+ImportError: Your FSPS version does not seem to be under git version control. FSPS is available on github at https://github.com/cconroy20/fsps and should be cloned from there
+
+
