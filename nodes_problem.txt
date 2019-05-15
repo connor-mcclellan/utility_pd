@@ -1,0 +1,68 @@
+
+=================================================================== LOGIN NODE
+
+(pdenv) [cmcclellan1010@login3 ~]$ which python
+~/anaconda2/envs/pdenv/bin/python
+(pdenv) [cmcclellan1010@login3 ~]$ python
+Python 2.7.16 |Anaconda, Inc.| (default, Mar 14 2019, 21:00:58) 
+[GCC 7.3.0] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import hyperion
+>>> import fsps
+>>> 
+
+=================================================================== c23b-s36
+
+(pdenv) [cmcclellan1010@c23b-s36 ~]$ which python
+~/anaconda2/bin/python
+
+=================================================================== c29a-s23
+
+(pdenv) [cmcclellan1010@c29a-s23 ~]$ which python
+~/anaconda2/bin/python
+
+=================================================================== c23a-s41
+
+(pdenv) [cmcclellan1010@c23a-s41 ~]$ which python
+~/anaconda2/envs/pdenv/bin/python
+
+(pdenv) [cmcclellan1010@c23a-s41 ~]$ python
+Python 2.7.16 |Anaconda, Inc.| (default, Mar 14 2019, 21:00:58) 
+[GCC 7.3.0] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import fsps
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/cmcclellan1010/anaconda2/envs/pdenv/lib/python2.7/site-packages/fsps/__init__.py", line 38, in <module>
+    raise ImportError("Your FSPS version does not seem to be under git version "
+ImportError: Your FSPS version does not seem to be under git version control. FSPS is available on github at https://github.com/cconroy20/fsps and should be cloned from there
+>>> import hyperion
+>>> 
+
+=================================================================== c33b-s24
+
+(pdenv) [cmcclellan1010@c33b-s24 ~]$ which python
+~/anaconda2/bin/python
+
+=================================================================== c26a-s22
+
+(pdenv) [cmcclellan1010@c26a-s22 ~]$ which python
+~/anaconda2/bin/python
+
+=================================================================== c22a-s39
+
+(pdenv) [cmcclellan1010@c22a-s39 ~]$ which python
+~/anaconda2/envs/pdenv/bin/python
+(pdenv) [cmcclellan1010@c22a-s39 ~]$ python
+Python 2.7.16 |Anaconda, Inc.| (default, Mar 14 2019, 21:00:58) 
+[GCC 7.3.0] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import fsps
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/cmcclellan1010/anaconda2/envs/pdenv/lib/python2.7/site-packages/fsps/__init__.py", line 38, in <module>
+    raise ImportError("Your FSPS version does not seem to be under git version "
+ImportError: Your FSPS version does not seem to be under git version control. FSPS is available on github at https://github.com/cconroy20/fsps and should be cloned from there
+>>> import hyperion
+>>> 
+

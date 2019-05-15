@@ -1,7 +1,11 @@
 
 PROBLEM
 =======
-Running pd_front_end.py with FSPS installed through pip returns
+Running pd_front_end.py with FSPS installed through pip returns an import error.
+
+CAUSE
+=====
+Git has not been loaded as a module on the supercomputer node.
 
 TRACEBACK
 =========
@@ -11,17 +15,17 @@ ImportError: Your FSPS version does not seem to be under git version control. FS
 
 SOLUTION
 ========
-Clone fsps from the git repository instead, so that version control is enabled.
-
-IMPLEMENTATION
-==============
-Will add this troubleshooting tip to the docs.
+Use "ml git"
 
 
 
 PROBLEM
 =======
 Metallicities for stars in the galaxy simulation are outside of the range that fsps can handle.
+
+CAUSE
+=====
+
 
 TRACEBACK
 =========
@@ -47,4 +51,24 @@ or minimum allowable metallicity in fsps.
 IMPLEMENTATION
 ==============
 Will change the code to perform the floor/ceiling operation.
+
+
+
+PROBLEM
+=======
+Can't find hyperion / other module when running pd_front_end.py on a cluster node.
+
+CAUSE
+=====
+The vanilla anaconda path environment variable is prepended and overrides the python environment in which the module is installed. 
+
+TRACEBACK
+=========
+
+SOLUTION
+========
+Move anaconda python path environment variable to end of .bashrc.
+
+IMPLEMENTATION
+==============
 
