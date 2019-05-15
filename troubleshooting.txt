@@ -67,7 +67,7 @@ TRACEBACK
 
 SOLUTION
 ========
-Move anaconda python path environment variable to end of .bashrc.
+Move anaconda python path environment variable to end of .bashrc. Simplify load-in procedure to reduce number of things that can go wrong.
 
 IMPLEMENTATION
 ==============
