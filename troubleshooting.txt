@@ -72,3 +72,41 @@ Move anaconda python path environment variable to end of .bashrc.
 IMPLEMENTATION
 ==============
 
+
+
+
+PROBLEM
+=======
+pd_front_end.py crashes when trying to load in dust files.
+
+CAUSE
+=====
+The custom dust files downloaded in the installation procedure were not downloaded as raw files.
+
+TRACEBACK
+=========
+Traceback (most recent call last):
+  File "pd_front_end.py", line 93, in <module>
+    m,xcent,ycent,zcent,dx,dy,dz,pf,boost = m_gen(fname,field_add)
+  File "sph_tributary.py", line 120, in sph_m_gen
+    d = SphericalDust(cfg.par.dustdir+'%s.hdf5'%size)
+  File "/home/cmcclellan1010/anaconda2/envs/pdenv/lib/python2.7/site-packages/hyperion/dust/dust_type.py", line 76, in __init__
+    self.read(args[0])
+  File "/home/cmcclellan1010/anaconda2/envs/pdenv/lib/python2.7/site-packages/hyperion/dust/dust_type.py", line 315, in read
+    dt = h5py.File(filename, 'r')
+  File "/home/cmcclellan1010/anaconda2/envs/pdenv/lib/python2.7/site-packages/h5py/_hl/files.py", line 394, in __init__
+    swmr=swmr)
+  File "/home/cmcclellan1010/anaconda2/envs/pdenv/lib/python2.7/site-packages/h5py/_hl/files.py", line 170, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 85, in h5py.h5f.open
+IOError: Unable to open file (file signature not found)
+
+SOLUTION
+========
+On github, "View Raw" needs to be clicked before the file is downloaded. However, one can't do this if using wget. Another solution must be found for compatibility with wget.
+
+Implementation
+==============
+I will update the troubleshooting docs to have a tip about making sure the files were raw before downloading.
