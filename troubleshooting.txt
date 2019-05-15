@@ -1,5 +1,50 @@
+
+PROBLEM
+=======
+Running pd_front_end.py with FSPS installed through pip returns
+
+TRACEBACK
+=========
 File "/home/cmcclellan1010/anaconda2/envs/pdenv/lib/python2.7/site-packages/fsps/__init__.py", line 38, in <module>
     raise ImportError("Your FSPS version does not seem to be under git version "
 ImportError: Your FSPS version does not seem to be under git version control. FSPS is available on github at https://github.com/cconroy20/fsps and should be cloned from there
 
+SOLUTION
+========
+Clone fsps from the git repository instead, so that version control is enabled.
+
+IMPLEMENTATION
+==============
+Will add this troubleshooting tip to the docs.
+
+
+
+PROBLEM
+=======
+Metallicities for stars in the galaxy simulation are outside of the range that fsps can handle.
+
+TRACEBACK
+=========
+assigning stars to SED bins
+Running SPS for Binned SEDs
+calculating the SEDs for  1204  bins
+delta_chunk_indices =  75
+Entering Pool.map multiprocessing for Stellar SED generation
+ SSP_GEN ERROR: metallicity outside of range          14
+ SSP_GEN ERROR: metallicity outside of range          15
+ SSP_GEN ERROR: metallicity outside of range          17
+ SSP_GEN ERROR: metallicity outside of range          18
+ SSP_GEN ERROR: metallicity outside of range          19
+ SSP_GEN ERROR: metallicity outside of range          20
+ SSP_GEN ERROR: metallicity outside of range          21
+ SSP_GEN ERROR: metallicity outside of range          13
+
+SOLUTION
+========
+Floor or ceiling these out-of-bounds metallicities with the maximum allowable
+or minimum allowable metallicity in fsps.
+
+IMPLEMENTATION
+==============
+Will change the code to perform the floor/ceiling operation.
 
