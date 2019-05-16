@@ -1,0 +1,446 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Getting Started &#8212; Powderday 0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quickstart" href="quickstart.html" />
+    <link rel="prev" title="Welcome to Powderday’s documentation!" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="quickstart.html" title="Quickstart"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Powderday’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Powderday 0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview-of-requirements">
+<h2>Overview of Requirements<a class="headerlink" href="#overview-of-requirements" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><strong>python2.x</strong><ul>
+<li>numpy (any version except 1.10.*)</li>
+<li>scipy</li>
+<li>astropy</li>
+<li>Atpy</li>
+<li>h5py</li>
+<li>ipdb</li>
+</ul>
+</li>
+<li><strong>compilers</strong><ul>
+<li>gcc</li>
+<li>gfortran</li>
+</ul>
+</li>
+<li><strong>Additional Packages (with Instructions Below)</strong><ul>
+<li>mercurial  &lt;<a class="reference external" href="http://mercurial.selenic.com/">http://mercurial.selenic.com/</a>&gt;</li>
+<li>git  &lt;<a class="reference external" href="http://git-scm.com/">http://git-scm.com/</a>&gt;</li>
+<li>powderday &lt;<a class="reference external" href="http://bitbucket.org/desika/powderday">http://bitbucket.org/desika/powderday</a>&gt;</li>
+<li>yt &lt;<a class="reference external" href="http://yt-project.org">http://yt-project.org</a>&gt;</li>
+<li>FSPS &lt;<a class="reference external" href="https://code.google.com/p/fsps/source/checkout">https://code.google.com/p/fsps/source/checkout</a>&gt;</li>
+<li>python-fsps &lt;<a class="reference external" href="http://dan.iel.fm/python-fsps/current/">http://dan.iel.fm/python-fsps/current/</a>&gt;</li>
+<li>Hyperion &lt;<a class="reference external" href="http://www.hyperion-rt.org/">http://www.hyperion-rt.org/</a>&gt;</li>
+<li>Hyperion Dust Files &lt;<a class="reference external" href="http://docs.hyperion-rt.org/en/stable/dust/dust.html">http://docs.hyperion-rt.org/en/stable/dust/dust.html</a>&gt;</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="manual-installation">
+<h3>Manual Installation<a class="headerlink" href="#manual-installation" title="Permalink to this headline">¶</a></h3>
+<p>What follows is a self-contained installation manual, though for
+problematic installs of any of the sub packages, it’s definitely best
+to visit the main docs on the main software site (which are always
+linked below in each subsection).</p>
+</div>
+<div class="section" id="python">
+<span id="id1"></span><h3>python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://bitbucket.org/desika/powderday">powderday</a> currently only
+works with python 2.x with provisional support for python 3.x (i.e. it
+<em>should</em> work though there may be issues yet outstanding – please do
+file an issue in on the BitBucket site if you find a 3.x issue)).  The
+code was developed on, and principally tested with python 2.7.</p>
+<p>This said, the code will be robust with python 3.x starting in Summer
+of 2019.</p>
+<p>As you will see, <a class="reference external" href="https://bitbucket.org/desika/powderday">powderday</a>
+currently requires a particular branch of <a class="reference external" href="http://yt-project.org">yt</a> As a result, one path that we have seen work
+well for users is to set up a different python environment for the
+<a class="reference external" href="https://bitbucket.org/desika/powderday">powderday</a> installation.   This could look something like (assuming a <code class="docutils literal notranslate"><span class="pre">conda</span></code> installation of python):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">pd_environment</span> <span class="n">python</span><span class="o">=</span><span class="mf">2.7</span>
+<span class="o">&gt;</span><span class="n">source</span> <span class="n">activate</span> <span class="n">pd_environment</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>(And then when you want to exit the environment, you can type)::</dt>
+<dd>&gt;source deactivate pd_environment</dd>
+</dl>
+<p>Then, whenever you’re in the <code class="docutils literal notranslate"><span class="pre">pd_environment</span></code>, everything you
+install will remain contained to that particular installation of
+python, and not conflict with any of your other installed packages.</p>
+</div>
+<div class="section" id="mercurial">
+<span id="id4"></span><h3>mercurial<a class="headerlink" href="#mercurial" title="Permalink to this headline">¶</a></h3>
+<p>You’ll need this to clone <a class="reference external" href="https://bitbucket.org/desika/powderday">powderday</a> using mercurial (hg).  If
+you don’t have mercurial, you can install it in your
+<code class="docutils literal notranslate"><span class="pre">pd_environment</span></code> via:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">source</span> <span class="n">activate</span> <span class="n">pd_environment</span>
+<span class="o">&gt;</span><span class="n">conda</span> <span class="n">install</span> <span class="n">mercurial</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<span id="id7"></span><h3>powderday<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Simply clone the latest and greatest from the repo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">hg</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">desika</span><span class="nd">@bitbucket</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">desika</span><span class="o">/</span><span class="n">powderday</span>
+</pre></div>
+</div>
+<p>And that’s it!  Once it’s cloned, there’s no subsidiary installation commands.</p>
+</div>
+<div class="section" id="id8">
+<span id="id9"></span><h3>yt<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://bitbucket.org/desika/powderday">powderday</a> has <a class="reference external" href="http://yt-project.org">yt</a> threaded throughout, and thus needs the
+software to be installed to function.  If you already have <a class="reference external" href="http://yt-project.org">yt</a> installed, be sure that it’s <a class="reference external" href="http://yt-project.org">yt</a> 3.x (i.e at least the ‘stable’ branch).</p>
+<p>If you don’t have <a class="reference external" href="http://yt-project.org">yt</a> already installed,
+it’s super easy!  There are many ways to do this (as directed on the
+<a class="reference external" href="http://yt-project.org">yt</a> project website.  We require the
+standalone installer script for the Development version.  This will
+ensure that bugs caught in or bleeding-edge features of <a class="reference external" href="http://yt-project.org">yt</a> are included.</p>
+<p>Note: starting in Summer 2019, we will begin requiring the usage of
+<a class="reference external" href="http://yt-project.org">yt</a> 4.x (under development), the ‘demeshed’
+version of <a class="reference external" href="http://yt-project.org">yt</a> .  These docs will update
+accordingly when this is the case.</p>
+</div>
+<div class="section" id="fsps">
+<span id="id19"></span><h3>fsps<a class="headerlink" href="#fsps" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://code.google.com/p/fsps/source/checkout">fsps</a> can be checked out with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">cconroy20</span><span class="o">/</span><span class="n">fsps</span>
+</pre></div>
+</div>
+<p>and directions to the installation are in the <a class="reference external" href="https://www.cfa.harvard.edu/~cconroy/FSPS_files/MANUAL.pdf">Manual</a></p>
+<p>It’s likely going to be necessary downstream when installing  <a class="reference external" href="http://dan.iel.fm/python-fsps/current/installation/">python-fsps</a> to have the -fPIC flags set in <a class="reference external" href="https://code.google.com/p/fsps/source/checkout">fsps</a> when making.  So, in the Makefile of <a class="reference external" href="https://code.google.com/p/fsps/source/checkout">fsps</a> , set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">F90FLAGS</span> <span class="o">=</span> <span class="o">-</span><span class="n">O</span> <span class="o">-</span><span class="n">cpp</span> <span class="o">-</span><span class="n">fPIC</span>
+</pre></div>
+</div>
+<p>if your <code class="docutils literal notranslate"><span class="pre">gcc</span></code> version is lower than 4.3.0, or:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">F90FLAGS</span> <span class="o">=</span> <span class="o">-</span><span class="mi">03</span> <span class="o">-</span><span class="n">march</span><span class="o">=</span><span class="n">native</span> <span class="o">-</span><span class="n">cpp</span> <span class="o">-</span><span class="n">fPIC</span>
+</pre></div>
+</div>
+<p>if <code class="docutils literal notranslate"><span class="pre">gcc</span></code> is version 4.3.0 or higher. This can be checked with <code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">--version</span></code>. Additionally, at this time <a class="reference external" href="https://bitbucket.org/desika/powderday">powderday</a>  doesn’t work with the default MIST Isochrones.  To fix this, you’ll need to edit sps_vars.f90 in <a class="reference external" href="https://code.google.com/p/fsps/source/checkout">fsps</a>  to look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!------set the isochrone library------!
+#define MIST 0
+!Padova models circa 2008
+#define PADOVA 1
+#define PARSEC 0
+#define BASTI 0
+#define GENEVA 0
+</pre></div>
+</div>
+<p>Finally, the SPS_HOME variable must be set in your environment to point to the FSPS/src directory.  For example, if your environment is bash, in your .bashrc set something along the lines of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">export</span> <span class="n">SPS_HOME</span><span class="o">=/</span><span class="n">Users</span><span class="o">/</span><span class="n">desika</span><span class="o">/</span><span class="n">fsps</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id25">
+<span id="id26"></span><h3>python-fsps<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://bitbucket.org/desika/powderday">powderday</a> depends on
+python hooks for <a class="reference external" href="https://code.google.com/p/fsps/source/checkout">fsps</a> written by Daniel
+Foreman-Mackey and others called <a class="reference external" href="http://dan.iel.fm/python-fsps/current/installation/">python-fsps</a>.  There are a
+few ways to install it.  Perhaps the easiest is via a pip installer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">pip</span> <span class="n">install</span> <span class="n">fsps</span>
+</pre></div>
+</div>
+<p>Though you could also install the development version:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">dfm</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">fsps</span><span class="o">.</span><span class="n">git</span>
+<span class="o">&gt;</span><span class="n">cd</span> <span class="n">python</span><span class="o">-</span><span class="n">fsps</span>
+<span class="o">&gt;</span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>You can test the installation by opening python and typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">fsps</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hyperion">
+<span id="id30"></span><h3>Hyperion<a class="headerlink" href="#hyperion" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://www.hyperion-rt.org">Hyperion</a> is the main work horse of
+<a class="reference external" href="https://bitbucket.org/desika/powderday">powderday</a>.  The full
+directions for installation are well-described on the main
+<a class="reference external" href="http://docs.hyperion-rt.org/en/stable/installation/installation.html">Installation page for Hyperion</a>
+Here, we summarize the installation which should get most users
+through without any real difficulty.</p>
+<p>There are two ways to install <a class="reference external" href="http://www.hyperion-rt.org">Hyperion</a> .  The first is via <code class="docutils literal notranslate"><span class="pre">conda</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">hyperion</span>
+</pre></div>
+</div>
+<p>Note, this will eventually become deprecated for <a class="reference external" href="https://bitbucket.org/desika/powderday">powderday</a> (or at least modified as
+the <a class="reference external" href="http://www.hyperion-rt.org">Hyperion</a> <code class="docutils literal notranslate"><span class="pre">conda</span></code> install ships
+with <a href="#id50"><span class="problematic" id="id51">`yt 3.x&lt;http://yt-project.org&gt;`_</span></a>, and eventual upgrade to <a href="#id52"><span class="problematic" id="id53">`yt
+4.x&lt;http://yt-project.org&gt;`_</span></a> is coming in Summer 2019.</p>
+<p>The second and manual way to install <a class="reference external" href="http://www.hyperion-rt.org">Hyperion</a> follows:
+1. First download the tarball and unpack it.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">tar</span> <span class="o">-</span><span class="n">xzvf</span> <span class="n">hyperion</span><span class="o">.</span><span class="n">xxx</span>
+<span class="o">&gt;</span><span class="n">cd</span> <span class="n">hyperion</span><span class="o">.</span><span class="n">xxx</span>
+</pre></div>
+</div>
+<ol class="arabic" start="2">
+<li><p class="first">Install the fortran dependencies:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">cd</span> <span class="n">deps</span><span class="o">/</span><span class="n">fortran</span>
+<span class="o">&gt;</span><span class="n">python</span> <span class="n">install</span><span class="o">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">prefix</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>where &lt;prefix&gt; is where you want the libraries to be installed.  To
+avoid conflicts with other packages, I usually install somewhere
+like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">python</span> <span class="n">install</span><span class="o">.</span><span class="n">py</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">hyperion</span>
+</pre></div>
+</div>
+<p>as suggested by the <a class="reference external" href="http://www.hyperion-rt.org">Hyperion</a> docs.  Ensure that the
+following commands return something sensible:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">which</span> <span class="n">mpif90</span>
+<span class="o">&gt;</span><span class="n">which</span> <span class="n">h5fc</span>
+</pre></div>
+</div>
+<p>if not, your path probably needs to include wherever the &lt;prefix&gt; directory pointed to.
+3. Install any remaining python dependencies. These are listed <a class="reference external" href="http://docs.hyperion-rt.org/en/stable/installation/python_dependencies.html">here</a>
+4. Install <a class="reference external" href="http://www.hyperion-rt.org">Hyperion</a>  itself.  To do this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">cd</span> <span class="n">hyperion</span><span class="o">.</span><span class="n">xxx</span>
+<span class="o">&gt;</span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span>
+</pre></div>
+</div>
+<p>if you don’t have root access.  At this point:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="kn">import</span> <span class="nn">hyperion</span>
+</pre></div>
+</div>
+<p>from within python should work, and typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">hyperion</span>
+</pre></div>
+</div>
+<p>at the command line should return something along the lines of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">usage</span><span class="p">:</span> <span class="n">hyperion</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">f</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">m</span> <span class="n">n_cores</span><span class="p">]</span> <span class="nb">input</span> <span class="n">output</span>
+<span class="o">&gt;</span><span class="n">hyperion</span><span class="p">:</span> <span class="n">error</span><span class="p">:</span> <span class="n">too</span> <span class="n">few</span> <span class="n">arguments</span>
+</pre></div>
+</div>
+<p>if not, check the the path that is near one of the last lines of the
+setup.py installation (that is something associated with the
+number 755) and make sure it’s in your path.  Ir’s most likely to be a
+python binaries directory.</p>
+<p>You then have to install the Fortran Binaries:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;./</span><span class="n">configure</span>  <span class="o">--</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span>
+<span class="o">&gt;</span><span class="n">make</span>
+<span class="o">&gt;</span><span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>where the prefix is wherever you installed the Fortran libraries
+before.  Make sure this works by typing at the command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">hyperion_sph</span>
+</pre></div>
+</div>
+<p>which should return something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">Usage</span><span class="p">:</span> <span class="n">hyperion_sph</span> <span class="p">[</span><span class="o">-</span><span class="n">f</span><span class="p">]</span> <span class="n">input_file</span> <span class="n">output_file</span>
+
+
+<span class="o">..</span> <span class="n">_Hyperion_dust</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hyperion-dust-files">
+<h3>Hyperion Dust Files<a class="headerlink" href="#hyperion-dust-files" title="Permalink to this headline">¶</a></h3>
+<p>Unless you’ve written your own dust files, you will likely want to use
+the pre-compiled dust files developed by Tom Robitaille (though don’t
+ship with <a class="reference external" href="http://www.hyperion-rt.org">Hyperion</a> due to their size).
+To install these download them here:
+<a class="reference external" href="http://docs.hyperion-rt.org/en/stable/dust/dust.html">http://docs.hyperion-rt.org/en/stable/dust/dust.html</a>.  Then to
+install:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">tar</span> <span class="n">xvzf</span> <span class="n">hyperion</span><span class="o">-</span><span class="n">dust</span><span class="o">-</span><span class="n">xxx</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="o">&gt;</span><span class="n">cd</span> <span class="n">hyperion</span><span class="o">-</span><span class="n">dust</span><span class="o">-</span><span class="mf">0.1</span><span class="o">.</span><span class="mi">0</span>
+<span class="o">&gt;</span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">build_dust</span>
+</pre></div>
+</div>
+<p>If you want to use the PAH model in <a class="reference external" href="https://bitbucket.org/desika/powderday">powderday</a>, you’ll additionally need
+these files in the same dust directory.  To download, click on the link,
+then click ‘raw’ on the right side of each page.</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://github.com/hyperion-rt/paper-galaxy-rt-model/blob/master/dust/big.hdf5">https://github.com/hyperion-rt/paper-galaxy-rt-model/blob/master/dust/big.hdf5</a></li>
+<li><a class="reference external" href="https://github.com/hyperion-rt/paper-galaxy-rt-model/blob/master/dust/vsg.hdf5">https://github.com/hyperion-rt/paper-galaxy-rt-model/blob/master/dust/vsg.hdf5</a></li>
+<li><a class="reference external" href="https://github.com/hyperion-rt/paper-galaxy-rt-model/blob/master/dust/usg.hdf5">https://github.com/hyperion-rt/paper-galaxy-rt-model/blob/master/dust/usg.hdf5</a></li>
+</ol>
+<p>Please note the caveat that the PAH files are generated using some
+approxmations described in <a class="reference external" href="http://www.aanda.org/articles/aa/abs/2012/09/aa19073-12/aa19073-12.html">Robitaille et
+al.</a>,
+and we encourage the user of these PAH files to read this paper,
+especially section 3.4.2.</p>
+</div>
+</div>
+<div class="section" id="troubleshooting-your-installation">
+<h2>Troubleshooting your Installation<a class="headerlink" href="#troubleshooting-your-installation" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div></div></blockquote>
+<div class="section" id="python-fsps-installation-issues">
+<span id="id41"></span><h3>python-fsps installation issues<a class="headerlink" href="#python-fsps-installation-issues" title="Permalink to this headline">¶</a></h3>
+<p>1.  <a class="reference external" href="http://dan.iel.fm/python-fsps/current/installation/">python-fsps</a> can’t find f2py</p>
+<blockquote>
+<div><p>f2py is a numpy package that is sometimes named f2py2.7 by numpy.
+At the same time, <a class="reference external" href="http://dan.iel.fm/python-fsps/current/installation/">python-fsps</a> expects it
+to be called f2py (as it sometimes is; for example in Anaconda).
+So, you might need to locate f2py (it ships with <a class="reference external" href="http://yt-project.org">yt</a>, so if you for example use the <a class="reference external" href="http://yt-project.org">yt</a> python) you need to link the following
+files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">cd</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">desika</span><span class="o">/</span><span class="n">yt</span><span class="o">-</span><span class="n">x86_64</span><span class="o">/</span><span class="nb">bin</span>
+<span class="o">&gt;</span><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="n">f2py2</span><span class="o">.</span><span class="mi">7</span> <span class="n">f2py</span>
+</pre></div>
+</div>
+<p>and:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">cd</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">desika</span><span class="o">/</span><span class="n">yt</span><span class="o">-</span><span class="n">x86_64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python2</span><span class="o">.</span><span class="mi">7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span>
+<span class="o">&gt;</span><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="n">numpy</span><span class="o">/</span><span class="n">f2py</span><span class="o">/</span> <span class="n">f2py</span>
+</pre></div>
+</div>
+<p>This should hopefully fix it.</p>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><p class="first">Issues with ‘f2py’ in the  <a class="reference external" href="http://dan.iel.fm/python-fsps/current/installation/">python-fsps</a> installation:</p>
+<p>Numpy has made some changes to f2py in the 1.10.x version of numpy.
+The easiest fix is to use a non 1.10.* version of numpy (thanks to
+Ben Johnson for finding this).</p>
+</li>
+</ol>
+<p>3.  <a class="reference external" href="http://dan.iel.fm/python-fsps/current/installation/">python-fsps</a> has mysterious
+installation failures.  Often this has to do with a bad <a class="reference external" href="https://github.com/cconroy20/fsps">FSPS</a> compilation. Even if it seems
+like <a class="reference external" href="https://github.com/cconroy20/fsps">FSPS</a> has compiled, it may
+not actually execute properly if the correct compilers aren’t set in
+the MakeFile.  Thanks to Ena Choi for pointing this one out.</p>
+</div>
+<div class="section" id="other-installation-issues">
+<h3>Other installation issues<a class="headerlink" href="#other-installation-issues" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Freezing during <code class="docutils literal notranslate"><span class="pre">Pool.map</span></code> and <cite>‘metallicity outside of range’</cite> errors:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Entering</span> <span class="n">Pool</span><span class="o">.</span><span class="n">map</span> <span class="n">multiprocessing</span> <span class="k">for</span> <span class="n">Stellar</span> <span class="n">SED</span> <span class="n">generation</span>
+<span class="n">SSP_GEN</span> <span class="n">ERROR</span><span class="p">:</span> <span class="n">metallicity</span> <span class="n">outside</span> <span class="n">of</span> <span class="nb">range</span>          <span class="mi">14</span>
+<span class="n">SSP_GEN</span> <span class="n">ERROR</span><span class="p">:</span> <span class="n">metallicity</span> <span class="n">outside</span> <span class="n">of</span> <span class="nb">range</span>          <span class="mi">15</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Some installations have encountered this issue, and its cause has not yet been determined. One potential fix could be using <a class="reference external" href="https://repo.continuum.io/miniconda/">Miniconda</a> instead of <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda</a> Python, although this has not been confirmed to be the source of the problem. A fresh installation from scratch is another viable option.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Getting Started</a><ul>
+<li><a class="reference internal" href="#overview-of-requirements">Overview of Requirements</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#manual-installation">Manual Installation</a></li>
+<li><a class="reference internal" href="#python">python</a></li>
+<li><a class="reference internal" href="#mercurial">mercurial</a></li>
+<li><a class="reference internal" href="#id6">powderday</a></li>
+<li><a class="reference internal" href="#id8">yt</a></li>
+<li><a class="reference internal" href="#fsps">fsps</a></li>
+<li><a class="reference internal" href="#id25">python-fsps</a></li>
+<li><a class="reference internal" href="#hyperion">Hyperion</a></li>
+<li><a class="reference internal" href="#hyperion-dust-files">Hyperion Dust Files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting-your-installation">Troubleshooting your Installation</a><ul>
+<li><a class="reference internal" href="#python-fsps-installation-issues">python-fsps installation issues</a></li>
+<li><a class="reference internal" href="#other-installation-issues">Other installation issues</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to Powderday’s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="quickstart.html"
+                        title="next chapter">Quickstart</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/installation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="quickstart.html" title="Quickstart"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Powderday’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Powderday 0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Desika Narayanan.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>
