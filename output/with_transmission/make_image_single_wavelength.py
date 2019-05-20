@@ -15,7 +15,7 @@ filename = 'example.134.rtout.image'
 
 
 m = ModelOutput(path+filename)
-wav = 0.56 #micron
+wav = 0.98 #micron
 redshift = 3.1
 image_width = 200 #kpc
 
@@ -29,25 +29,35 @@ distance = Planck13.luminosity_distance(redshift).cgs.value
 # have to specify group=1 as there is no image in group 0.
 image = m.get_image(distance=distance, units='mJy')
 
+
 # Open figure and create axes
 fig = plt.figure()
-
-
 ax = fig.add_subplot(111)
 
-# Find the closest wavelength
-iwav = np.argmin(np.abs(wav - image.wav))
 
 # Calculate the image width in kpc
 w = image.x_max * u.cm
 w = w.to(u.kpc)
 
 
+# Manually combine wavelengths according to filter transmission function
+MANUAL_FILTER_CONVOLUTION = False
+MANUAL_FILTER_CONVOLUTION_FILE = '/home/cmcclellan1010/powderday/filters/STIS_clear_8.filter'
+
+if MANUAL_FILTER_CONVOLUTION:
+    filter_file = np.loadtxt(MANUAL_FILTER_CONVOLUTION_FILE)
+    all_wavs = [image.val[0, :, :, i] for i in range(len(image.wav))]
+    image = np.average(all_wavs, axis=0, weights=filter_file[:,1])
+    image_suffix = 'convolved'
+else:
+    # Find the closest wavelength
+    iwav = np.argmin(np.abs(wav - image.wav))
+    image = image.val[0, :, :, iwav]
+    image_suffix = str(int(1000*wav))+'nm'
 
 #plot the beast
-
-cax = ax.imshow(np.log(image.val[0,:, :, iwav]),
-                cmap = plt.cm.viridis, origin='lower', extent=[-w.value, w.value, -w.value, w.value])
+cax = ax.imshow(np.log(image), cmap=plt.cm.viridis, origin='lower', vmin=0.0,
+                extent=[-w.value, w.value, -w.value, w.value])
 
 
 plt.xlim([-image_width,image_width])
@@ -61,4 +71,4 @@ ax.set_xlabel('y kpc')
 
 plt.colorbar(cax,label='Flux (mJy)',format='%.0e')
 
-fig.savefig(path+'images/pd_image_'+str(int(1000*wav))+'nm.png', bbox_inches='tight',dpi=150)
+fig.savefig(path+'images/pd_image_'+image_suffix+'.png', bbox_inches='tight',dpi=150)
