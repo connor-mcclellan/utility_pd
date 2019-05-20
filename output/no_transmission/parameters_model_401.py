@@ -14,7 +14,7 @@ hydro_dir = '/home/cmcclellan1010/powderday/examples/gadget/mw_zoom/'
 Gadget_snap_name = 'snapshot_'+snapnum_str+'.hdf5'
 
 #where the files should go
-PD_output_dir = '/home/cmcclellan1010/powderday/examples/gadget/mw_zoom/'
+PD_output_dir = '/home/cmcclellan1010/pdwork/output/no_transmission/'
 Auto_TF_file = 'snap'+snapnum_str+'.logical'
 Auto_dustdens_file = 'snap'+snapnum_str+'.dustdens'
 

@@ -122,13 +122,14 @@ SED_MONOCHROMATIC_nlam = 100
 
 
 IMAGING = True
-filter_file = '/home/cmcclellan1010/powderday/pdfilters.dat'
+# filter_file = '/home/cmcclellan1010/powderday/pdfilters.dat'
+filter_file = '/home/cmcclellan1010/powderday/STIS_clear_8.dat'
 npix_x = 512
 npix_y = 512
 
 #experimental and under development - not advised for use
-IMAGING_TRANSMISSION_FILTER = True
-filter_list = ['filters/STIS_clear.filter']
+IMAGING_TRANSMISSION_FILTER = False
+filter_list = ['filters/STIS_clear_8.filter']
 TRANSMISSION_FILTER_REDSHIFT = 3.1
 
 #===============================================
