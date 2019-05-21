@@ -16,7 +16,7 @@ else:
     outfile = args.outfile
 print('Outfile: '+outfile)
 
-image_data = np.loadtxt(args.filename)
+image_data = np.ndarray.flatten(np.loadtxt(args.filename))
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
