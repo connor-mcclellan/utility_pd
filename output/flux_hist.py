@@ -28,7 +28,7 @@ ax.hist(nonzero, bins=np.logspace(np.log10(np.min(nonzero)), np.log10(np.max(non
 ax.set_xlabel('Flux (mJy)')
 ax.set_xscale('log')
 ax.set_ylabel('n')
-plt.title('Histogram of Fluxes ({})'.format(args.filename))
+plt.title('{}'.format(args.filename))
 
 if os.path.isfile(outfile):
     os.remove(outfile)
