@@ -21,10 +21,9 @@ image_data = np.ndarray.flatten(np.loadtxt(args.filename))
 fig = plt.figure()
 ax = fig.add_subplot(111)
 
-
 nonzero = image_data[image_data != 0.0]
 
-ax.hist(nonzero, bins=np.logspace(np.min(nonzero), np.max(nonzero), 75))
+ax.hist(nonzero, bins=np.logspace(np.log10(np.min(nonzero)), np.log10(np.max(nonzero)), 75))
 
 ax.set_xlabel('Flux (mJy)')
 ax.set_xscale('log')
