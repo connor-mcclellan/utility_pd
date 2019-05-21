@@ -21,7 +21,7 @@ image_data = np.ndarray.flatten(np.loadtxt(args.filename))
 fig = plt.figure()
 ax = fig.add_subplot(111)
 
-ax.hist(image_data)
+ax.hist(image_data[image_data != 0.0])
 ax.set_xlabel('Flux (mJy)')
 ax.set_ylabel('n')
 plt.title('Histogram of Fluxes ({})'.format(args.filename))
