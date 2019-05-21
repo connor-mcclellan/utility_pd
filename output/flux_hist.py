@@ -24,7 +24,7 @@ ax = fig.add_subplot(111)
 
 nonzero = image_data[image_data != 0.0]
 
-ax.hist(nonzero, bins=np.linspace(0, 3.*np.std(nonzero), 75))
+ax.hist(nonzero, bins=np.linspace(0, 0.5*np.std(nonzero), 75))
 ax.set_xlabel('Flux (mJy)')
 ax.set_ylabel('n')
 plt.title('Histogram of Fluxes ({})'.format(args.filename))
