@@ -25,4 +25,7 @@ ax.hist(image_data)
 ax.set_xlabel('Flux (mJy)')
 ax.set_ylabel('n')
 plt.title('Histogram of Fluxes ({})'.format(args.filename))
+
+if os.path.isfile(outfile):
+    os.remove(outfile)
 fig.savefig(outfile, bbox_inches='tight', dpi=150)
