@@ -1,8 +1,6 @@
 from subprocess import call
 
-call(['python', 'flux_hist.py', '/home/cmcclellan1010/pdwork/output/manualconv/progressive/pd_manualconv_progressive_0.dat'])
-call(['python', 'flux_hist.py', '/home/cmcclellan1010/pdwork/output/manualconv/progressive/pd_manualconv_progressive_1.dat'])
-call(['python', 'flux_hist.py', '/home/cmcclellan1010/pdwork/output/manualconv/progressive/pd_manualconv_progressive_2.dat'])
-call(['python', 'flux_hist.py', '/home/cmcclellan1010/pdwork/output/manualconv/progressive/pd_manualconv_progressive_3.dat'])
-call(['python', 'flux_hist.py', '/home/cmcclellan1010/pdwork/output/manualconv/progressive/pd_manualconv_progressive_4.dat'])
-call(['python', 'flux_hist.py', '/home/cmcclellan1010/pdwork/output/manualconv/progressive/pd_manualconv_progressive_5.dat'])
+for i in range(6):
+    call(['python', 'make_image.py', '-f', './filters/progressive_'+str(i)+'.filter', '-d', './output/lowZ/manual/example.134.rtout.image'])
+    call(['python', 'flux_hist.py', '/home/cmcclellan1010/pdwork/output/lowZ/manual/pdimageout_progressive_'+str(i)+'.dat'])
+   
