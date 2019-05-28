@@ -26,11 +26,15 @@ ax = fig.add_subplot(111)
 
 nonzero = image_data[image_data != 0.0]
 
-ax.hist(nonzero, bins=np.logspace(np.log(np.min(nonzero)), np.log(np.max(nonzero)), 75, base=np.e))
+
+xmin = np.log(args.xmin) if args.xmin is not None else np.log(np.min(nonzero))
+xmax = np.log(args.xmax) if args.xmax is not None else np.log(np.max(nonzero))
+
+ax.hist(nonzero, bins=np.logspace(xmin, xmax, 75, base=np.e))
 
 ax.set_xlabel('log Flux (mJy)')
 ax.set_xscale('log')
-ax.set_xlim(xmin=args.xmin, xmax=args.xmax)
+#ax.set_xlim(xmin=args.xmin, xmax=args.xmax)
 ax.set_ylabel('n')
 plt.title('{}'.format(args.filename))
 
