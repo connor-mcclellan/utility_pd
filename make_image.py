@@ -8,6 +8,9 @@ import astropy.units as u
 import os
 import argparse
 
+plt.rc('text', usetex=True)
+plt.rc('font', family='serif')
+
 parser = argparse.ArgumentParser(description='Synthesize an image at either a single wavelength or by convolving many wavelengths with a filter.')
 parser.add_argument('infile', type=str, help='Filename of the ".image" file.')
 parser.add_argument('-w', '--wav', type=float, help='A single wavelength in nm, if producing a monochromatic image.')
@@ -91,6 +94,6 @@ ax.set_xlabel('x kpc')
 ax.set_xlabel('y kpc')
 
 
-plt.colorbar(cax,label='Flux (mJy)',format='%.0e')
+plt.colorbar(cax,label='log Flux (mJy)',format='%.0e')
 plt.title(outfile+'.png')
 fig.savefig(outfile_path+'.png', bbox_inches='tight',dpi=150)
