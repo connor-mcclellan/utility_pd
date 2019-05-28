@@ -8,8 +8,6 @@ import astropy.units as u
 import os
 import argparse
 
-plt.rc('text', usetex=True)
-plt.rc('font', family='serif')
 
 parser = argparse.ArgumentParser(description='Synthesize an image at either a single wavelength or by convolving many wavelengths with a filter.')
 parser.add_argument('infile', type=str, help='Filename of the ".image" file.')

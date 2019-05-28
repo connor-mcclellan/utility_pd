@@ -5,9 +5,6 @@ import matplotlib.pyplot as plt
 import argparse
 import os
 
-plt.rc('text', usetex=True)
-plt.rc('font', family='serif')
-
 parser = argparse.ArgumentParser(description='Plot a raw image file (.dat format) as a histogram of fluxes.')
 parser.add_argument('filename', metavar='filename', type=str, help='filename of the .dat file')
 parser.add_argument('-o', '--outfile', metavar='outfile', type=str, help='name of output matplotlib savefig file')
