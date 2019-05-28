@@ -13,6 +13,9 @@ parser.add_argument('infile', type=str, help='Filename of the ".image" file.')
 parser.add_argument('-w', '--wav', type=float, help='A single wavelength in nm, if producing a monochromatic image.')
 parser.add_argument('-f', '--filterfile', type=str, help='The ".filter" file to be used if convolving multiple wavelengths.')
 parser.add_argument('-d', '--dat', action='store_true', help='If enabled, saves a ".dat" file with image data.')
+parser.add_argument('--vmin', type=float, help='Minimum of colorbar scale, in units of flux.')
+parser.add_argument('--vmax', type=float, help='Maximum of colorbar scale, in units of flux.')
+
 
 args = parser.parse_args()
 
@@ -74,7 +77,9 @@ if args.dat:
     np.savetxt(outfile_path+'.dat', image_data)
 
 #plot the beast
-cax = ax.imshow(np.log(image_data), cmap=plt.cm.viridis, origin='lower', extent=[-w.value, w.value, -w.value, w.value])
+cax = ax.imshow(np.log(image_data), cmap=plt.cm.viridis, origin='lower', 
+                extent=[-w.value, w.value, -w.value, w.value], vmin=args.vmin,
+                vmax=args.vmax)
 
 plt.xlim([-image_width,image_width])
 plt.ylim([-image_width,image_width])
