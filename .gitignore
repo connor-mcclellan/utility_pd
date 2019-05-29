@@ -3,3 +3,5 @@
 **/SKIRT*
 **/*.npz
 ./output/**/*.txt
+**/*.pyc
+**/__pycache__
