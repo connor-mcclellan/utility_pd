@@ -57,12 +57,17 @@ if args.filter is not None:
     # Manually combine wavelengths according to filter transmission function
     filter_file = np.loadtxt(args.filter)
     images = [image.val[0, :, :, i] for i in range(len(image.wav))]
+    print('Found {} wavelengths to convolve.'.format(len(image.wav)))
     weights = filter_file[:,1]
+    print('Wavelengths: {}'.format(image.wav))
+    print('Weights: {}'.format(weights))
     image_data = np.average(images, axis=0, weights=weights)
     default_image_suffix = os.path.splitext(args.filter)[0].split('/')[-1]
 else:
     # Find the closest wavelength
     iwav = np.argmin(np.abs(args.wav - image.wav))
+    print('Input wavelength: {}'.format(args.wav))
+    print('Closest: {}'.format(image.wav[iwav]))
     image_data = image.val[0, :, :, iwav]
     default_image_suffix = str(int(args.wav))+'nm'
 
@@ -70,6 +75,7 @@ else:
 # Save a .dat file, if desired
 if args.dat:
     outfile = pathch(args.outfile, 'pdimageout_'+default_image_suffix+'.dat')
+    print('.dat outfile: {}'.format(outfile))
     np.savetxt(outfile, image_data)
 
 
@@ -93,6 +99,7 @@ plt.colorbar(cax,label='log Flux (mJy)',format='%.0e')
 plot_outfile = pathch(args.outfile, 'pdimageout_'+default_image_suffix+'.png')
 
 plt.title(plot_outfile)
+print('Plot outfile: {}'.format(plot_outfile))
 fig.savefig(plot_outfile, bbox_inches='tight',dpi=150)
 
 
