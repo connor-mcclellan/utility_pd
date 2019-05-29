@@ -6,13 +6,7 @@ def pathch(path, default=None):
     a path with a filename, a path with a filename with the wrong extension, 
     etc., and make necessary corrections.
     """
-
-#    if path with no filename:
-#        return path formatted properly
-#    elif path with filename and no extension:
-#        return path with filename (overwriting defaults) and default extension
-#    elif path with filename and wrong extension:
-#        
+      
     if path is None:
         path = './'
 
