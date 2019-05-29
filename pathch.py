@@ -39,7 +39,7 @@ def pathch(path, default=None):
         # User may overwrite a default filename if they wish, or provide a path
         # and the default filename will be used.
         if os.path.isdir(path):
-            path = os.path.dirname(path+'/')+'/'+default
+            path = os.path.dirname(path+'/')+'/'+os.path.basename(default)
         elif os.path.splitext(path)[1] == '': # User provided no extension
             # Keep user's filename but add an extension
             path = path + os.path.splitext(default)[1]
