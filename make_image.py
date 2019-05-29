@@ -19,7 +19,6 @@ parser.add_argument('-d', '--dat', action='store_true', help='If enabled, saves 
 parser.add_argument('--vmin', type=float, help='Minimum of colorbar scale, in units of flux.')
 parser.add_argument('--vmax', type=float, help='Maximum of colorbar scale, in units of flux.')
 
-
 args = parser.parse_args()
 
 m = ModelOutput(pathch(args.infile))
