@@ -1,6 +1,6 @@
 import os
 
-def pathch(path, default=None):
+def pathch(path, default=None, force=False):
     """
     Patch a path. Determine if a provided filename is a path with no filename, 
     a path with a filename, a path with a filename with the wrong extension, 
@@ -30,14 +30,23 @@ def pathch(path, default=None):
         return path
 
     else: #Filename and extension in default arg
-        # User may overwrite a default filename if they wish, or provide a path
-        # and the default filename will be used.
-        if os.path.isdir(path):
-            path = os.path.dirname(path+'/')+'/'+os.path.basename(default)
-        elif os.path.splitext(path)[1] == '': # User provided no extension
-            # Keep user's filename but add an extension
-            path = path + os.path.splitext(default)[1]
-        else: # User provided filename with extension
-            # Force extension
-            path = os.path.splitext(path)[0]+os.path.splitext(default)[1]
-        return path
+        if force is True:
+            # Force default filename but preserve path.
+            if os.path.isdir(path):
+                path = os.path.dirname(path+'/')+'/'+os.path.basename(default)
+            else:
+                path = os.path.dirname(path)+'/'+os.path.basename(default)
+            return path
+
+        else:
+            # User may overwrite a default filename if they wish, or provide a
+            # path and the default filename will be used.
+            if os.path.isdir(path):
+                path = os.path.dirname(path+'/')+'/'+os.path.basename(default)
+            elif os.path.splitext(path)[1] == '': # User provided no extension
+                # Keep user's filename but add an extension
+                path = path + os.path.splitext(default)[1]
+            else: # User provided filename with extension
+                # Force extension
+                path = os.path.splitext(path)[0]+os.path.splitext(default)[1]
+            return path
