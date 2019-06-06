@@ -50,10 +50,7 @@ if args.dat:
     np.savetxt(outf, image_data)
 
 #plot the beast
-image_data = np.ma.masked_where(image_data == 0, image_data)
-cmap = plt.cm.magma
-cmap.set_bad(color=cmap(0.0))
-cax = ax.imshow(np.log(image_data), cmap=cmap, origin='lower', 
+cax = ax.imshow(image_data, cmap='magma', origin='lower', 
                 extent=[-w.value, w.value, -w.value, w.value], vmin=args.vmin,
                 vmax=args.vmax)
 
