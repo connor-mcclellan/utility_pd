@@ -45,7 +45,7 @@ for i in range(len(alldata)):
     name = os.path.basename(args.filenames[i]).split('.npz')[0]
     ax.hist(alldata[i], bins=np.logspace(xmin, xmax, args.bins, base=np.e), 
             alpha=0.5, label=name, histtype='step')
-    ax.text(0.05,0.05*i, '{} sum: {}'.format(name, np.sum(alldata[i])), transform=ax.transAxes)
+    ax.text(0.01,0.95-0.05*i, '{} sum: {:.2f}'.format(name, np.sum(alldata[i])), transform=ax.transAxes)
 
 ax.set_xlabel('Value (Units)')
 ax.set_xscale('log')
