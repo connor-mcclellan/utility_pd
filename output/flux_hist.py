@@ -42,10 +42,12 @@ xmin = np.log(args.xmin) if args.xmin is not None else np.log(mindata)
 xmax = np.log(args.xmax) if args.xmax is not None else np.log(maxdata)
 
 for i in range(len(alldata)):
+    name = os.path.basename(args.filenames[i]).split('.npz')[0]
     ax.hist(alldata[i], bins=np.logspace(xmin, xmax, args.bins, base=np.e), 
-            alpha=0.5, label=os.path.basename(args.filenames[i]), histtype='step')
+            alpha=0.5, label=name, histtype='step')
+    ax.text(0.05,0.05*i, '{} sum: {}'.format(name, np.sum(alldata[i])))
 
-ax.set_xlabel('Value')
+ax.set_xlabel('Value (Units)')
 ax.set_xscale('log')
 ax.set_ylabel('n')
 plt.title('{}'.format(os.path.basename(outfile)))
