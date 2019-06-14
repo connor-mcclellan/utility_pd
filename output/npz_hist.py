@@ -49,6 +49,7 @@ for i in range(len(alldata)):
 
 ax.set_xlabel('Value (Units)')
 ax.set_xscale('log')
+ax.set_yscale('log')
 ax.set_ylabel('n')
 plt.title('{}'.format(os.path.basename(outfile)))
 
