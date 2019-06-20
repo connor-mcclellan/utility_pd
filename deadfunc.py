@@ -12,7 +12,7 @@ parser.add_argument('-c', '--clean', action='store_true')
 args = parser.parse_args()
 clean = args.clean
 parent_dir = os.path.abspath(args.directory)
-files = glob(parent_dir+'/**/*.py', recursive=True)
+files = glob(parent_dir+'/**/*.py')+glob(parent_dir+'/*.py')
 
 if not clean:
     try:
