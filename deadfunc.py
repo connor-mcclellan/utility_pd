@@ -11,14 +11,14 @@ parser.add_argument('-c', '--clean', action='store_true')
 
 args = parser.parse_args()
 clean = args.clean
-parent_dir = os.path.abspath(args.directory)
+parent_dir = os.path.abspath(args.directory+'/')
 files = glob(parent_dir+'/**/*.py')+glob(parent_dir+'/*.py')
 
 if not clean:
     try:
         os.remove(parent_dir+'/funcs_unused.txt')
         os.remove(parent_dir+'/funcs_used.txt')
-    except FileNotFoundError:
+    except:
         pass
 
 counter = 0
@@ -96,14 +96,12 @@ for pyfile in files:
             f.write(line)
         f.truncate()
 
-print(
-    '\n ####################################\n',
-    '# DEADFUNC CODE INJECTION COMPLETE #\n',
-    '####################################\n',
-    '\n',
-    'Functions injected: {}\n'.format(counter),    
-    'Functions cleaned: {}'.format(clean_counter)
-)    
+print('\n####################################')
+print('# DEADFUNC CODE INJECTION COMPLETE #')
+print('####################################')
+print('\n')
+print('Functions injected: {}'.format(counter))
+print('Functions cleaned: {}'.format(clean_counter))  
 
 if clean:
     print('\nClean complete. Your code should be returned to normal.')
