@@ -99,7 +99,7 @@ for pyfile in files:
 print('\n####################################')
 print('# DEADFUNC CODE INJECTION COMPLETE #')
 print('####################################')
-print('\n')
+print('')
 print('Functions injected: {}'.format(counter))
 print('Functions cleaned: {}'.format(clean_counter))  
 
