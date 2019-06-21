@@ -108,4 +108,4 @@ print('Functions cleaned: {}'.format(clean_counter))
 if clean:
     print('\nClean complete. If no warnings were given, your code should be returned to normal.')
 else:
-    print('\nYou may now run your scripts. Then, check the logfiles "funcs_used.txt" and "funcs_unused.txt" in {} to see which functions exist in your code but are not used. Afterwards, "python deadfunc.py --clean" to remove the inserted debugging code.'.format(parent_dir))
+    print('\nYou may now run your scripts. Then, check the logfiles "funcs_used.txt" and "funcs_unused.txt" in {} to see which functions exist in your code but are not used. Afterwards, "python deadfunc.py --clean {}" to remove the inserted debugging code.'.format(parent_dir, args.directory))
