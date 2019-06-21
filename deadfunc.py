@@ -54,15 +54,17 @@ for pyfile in files:
                 whitespace[j]+'    ###########################\n',
                 whitespace[j]+'\n',
                 whitespace[j]+'    import os\n',
-                whitespace[j]+'    with open("{}", "a+") as log:\n'.format(parent_dir+'/funcs_used.txt'),
-                whitespace[j]+'        log.write("{}")\n'.format(report),
-                whitespace[j]+'    with open("{}") as oldlog, open("{}", "w") as newlog:\n'.format(parent_dir+'/funcs_unused.txt', parent_dir+'/tmp.txt'),
-                whitespace[j]+'        lines = oldlog.readlines()\n',
+                whitespace[j]+'    with open("{}", "r+") as used:\n'.format(parent_dir+'/funcs_used.txt'),
+                whitespace[j]+'        lines = used.readlines()\n',
+                whitespace[j]+'        if not "{}" in lines:\n'.format(report),
+                whitespace[j]+'            used.write("{}")\n'.format(report),
+                whitespace[j]+'    with open("{}", "r+") as unused:\n'.format(parent_dir+'/funcs_unused.txt'),
+                whitespace[j]+'        lines = unused.readlines()\n',
+                whitespace[j]+'        unused.seek(0)\n',
                 whitespace[j]+'        for line in lines:\n',
-                whitespace[j]+'            if not "{}" in line:\n'.format(func_names[j]),
-                whitespace[j]+'                newlog.write(line)\n',
-                whitespace[j]+'    os.remove("{}")\n'.format(parent_dir+'/funcs_unused.txt'),
-                whitespace[j]+'    os.rename("{}", "{}")\n'.format(parent_dir+'/tmp.txt', parent_dir+'/funcs_unused.txt'),
+                whitespace[j]+'            if "{}" != line:\n'.format(report),
+                whitespace[j]+'                unused.write(line)\n',
+                whitespace[j]+'        unused.truncate()\n',
                 whitespace[j]+'\n',
                 whitespace[j]+'    ###########################\n',
             ]
@@ -96,14 +98,14 @@ for pyfile in files:
             f.write(line)
         f.truncate()
 
-print('\n####################################')
-print('# DEADFUNC CODE INJECTION COMPLETE #')
-print('####################################')
+print('\n####################')
+print('# DEADFUNC COMPLETE #')
+print('#####################')
 print('')
-print('Functions injected: {}'.format(counter))
+print('Functions edited: {}'.format(counter))
 print('Functions cleaned: {}'.format(clean_counter))  
 
 if clean:
-    print('\nClean complete. Your code should be returned to normal.')
+    print('\nClean complete. If no warnings were given, your code should be returned to normal.')
 else:
     print('\nYou may now run your scripts. Then, check the logfiles "funcs_used.txt" and "funcs_unused.txt" in {} to see which functions exist in your code but are not used. Afterwards, "python deadfunc.py --clean" to remove the inserted debugging code.'.format(parent_dir))
