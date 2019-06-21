@@ -11,8 +11,8 @@ parser = argparse.ArgumentParser(description="Insert debug code into all "
                                              " record when each function is "
                                              "being used.")
 
-parser.add_argument('directory', type=str, help='Parent directory to search')
-parser.add_argument('-c', '--clean', action='store_true', help='Previously '
+parser.add_argument('directory', type=str, help='parent directory to search')
+parser.add_argument('-c', '--clean', action='store_true', help='previously '
                                                                'inserted debug'
                                                                ' code will be '
                                                                'removed')
