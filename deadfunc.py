@@ -98,7 +98,7 @@ for pyfile in files:
             f.write(line)
         f.truncate()
 
-print('\n####################')
+print('\n#####################')
 print('# DEADFUNC COMPLETE #')
 print('#####################')
 print('')
